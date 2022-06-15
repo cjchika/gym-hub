@@ -8,11 +8,34 @@ import EquipmentImage from '../assets/icons/equipment.png'
 const Detail = ({ exerciseDetail }) => {
   const { bodyPart, gifUrl, name, target, equipment } = exerciseDetail;
 
-	console.log(gifUrl);
+	const extraDetail = [
+		{
+			icon: BodyPartImage, 
+			name: bodyPart
+		},
+		{
+			icon: TargetImage, 
+			name: target
+		},
+		{
+			icon: EquipmentImage, 
+			name: equipment
+		}
+	];
 
   return (
     <Stack gap='60px' sx={{flexDirection: { lg: 'row' }, p: '20px', alignItems: 'center'}}>
 			<img src={gifUrl} alt={name} loading='lazy' className='detail-image' />
+			<Stack sx={{ gap: { lg: '35px', xs: '20px'}}}>
+				<Typography variant='h4'>
+					{name}
+				</Typography>
+				<Typography variant='h6'>
+					Exercise keep you strong. {name} {' '}
+					is one of the best exercises to target {target}.
+					It will help you improve your mood and gain energy.
+				</Typography>
+			</Stack>
 		</Stack>
   )
 }
